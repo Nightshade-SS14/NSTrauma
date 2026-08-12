@@ -9,14 +9,6 @@
     snap:
     - Wall
   components:
-  # <Trauma>
-  - type: Penetratable
-    penetrateDamage: 50
-    damagePenalty: 0.1
-  - type: ExaminableDamage
-    messages: WindowMessages
-  - type: SoundBlocker
-  # </Trauma>
   - type: Anchorable
     flags:
     - Anchorable
@@ -39,7 +31,7 @@
   - type: PlacementReplacement
     key: walls
   - type: Damageable
-    damageModifierSet: Walls # Trauma - was StructuralMetallic
+    damageModifierSet: StructuralMetallic
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: Physics
@@ -58,6 +50,8 @@
   - type: Airtight
   - type: StaticPrice
     price: 75
+  - type: RadiationBlocker
+    resistance: 2
   - type: BlockWeather
   - type: SunShadowCast
 
@@ -66,12 +60,9 @@
   parent: BaseStructureWall
   id: BaseWall
   components:
-    # <Trauma>
-  - type: FreezableWall
-  - type: Appearance
-  - type: BulletHole
-    # </Trauma>
   - type: Occluder # Breaks on diagonal walls
+  - type: PlacementReplacement
+    key: walls
 
 - type: entity
   abstract: true
@@ -115,10 +106,6 @@
   id: WallBrick
   name: brick wall
   components:
-  # <Trauma>
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
   - type: Sprite
     sprite: Structures/Walls/brick.rsi
   - type: Icon
@@ -146,59 +133,16 @@
 
 - type: entity
   parent: BaseWall
-  id: WallClock
-  name: clock wall
+  id: WallBrass
+  name: brass wall
   components:
-  # <Trauma>
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
   - type: Sprite
-    sprite: Structures/Walls/clock.rsi
+    sprite: Structures/Walls/brass.rsi
   - type: Icon
-    sprite: Structures/Walls/clock.rsi
-  - type: Construction
-    graph: ClockworkGirder
-    node: clockworkWall
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ClockworkGirder:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: IconSmooth
-    key: walls
-    base: clock
-
-- type: entity
-  parent: BaseWall
-  id: WallClown
-  name: bananium wall
-  components:
-  # <Trauma>
-  - type: RadiationBlocker
-    resistance: 40
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
-  - type: Sprite
-    sprite: Structures/Walls/clown.rsi
-  - type: Icon
-    sprite: Structures/Walls/clown.rsi
+    sprite: Structures/Walls/brass.rsi
   - type: Construction
     graph: Girder
-    node: bananiumWall
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
+    node: brassWall
   - type: Destructible
     thresholds:
     - trigger:
@@ -214,18 +158,7 @@
         acts: [ "Destruction" ]
   - type: IconSmooth
     key: walls
-    base: clown
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 8000 # really good ramming wall, bananium is rare so it's probably fine
+    base: brass
 
 - type: entity
   parent: BaseWall
@@ -257,34 +190,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
-    key: walls
+    key: meatwalls
     base: meat
-
-- type: entity
-  parent: BaseWall
-  id: WallCult
-  name: cult wall
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/cult.rsi
-  - type: Icon
-    sprite: Structures/Walls/cult.rsi
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          Girder:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: IconSmooth
-    key: walls
-    base: cult
 
 - type: entity
   parent: BaseWall
@@ -315,49 +222,9 @@
 
 - type: entity
   parent: BaseWall
-  id: WallDiamond
-  name: diamond wall
-  components:
-  # <Trauma>
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
-  - type: Sprite
-    sprite: Structures/Walls/diamond.rsi
-  - type: Icon
-    sprite: Structures/Walls/diamond.rsi
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          Girder:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: IconSmooth
-    key: walls
-    base: diamond
-
-- type: entity
-  parent: BaseWall
   id: WallGold
   name: gold wall
   components:
-  # <Trauma>
-  - type: RadiationBlocker
-    resistance: 10
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
   - type: Sprite
     sprite: Structures/Walls/gold.rsi
   - type: Icon
@@ -398,45 +265,10 @@
     base: gold
 
 - type: entity
-  parent: BaseStructureWall # Trauma - don't inherit FreezableWall
-  id: WallIce
-  name: ice wall
-  components:
-  # <Trauma>
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  - type: Occluder # from BaseWall
-  # </Trauma>
-  - type: Sprite
-    sprite: Structures/Walls/ice.rsi
-  - type: Icon
-    sprite: Structures/Walls/ice.rsi
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          Girder:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: IconSmooth
-    key: walls
-    base: ice
-
-- type: entity
   parent: BaseWall
   id: WallPlasma
   name: plasma wall
   components:
-  # <Trauma>
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
   - type: Sprite
     sprite: Structures/Walls/plasma.rsi
   - type: Icon
@@ -465,44 +297,7 @@
     key: walls
     base: plasma
   - type: RadiationBlocker
-    resistance: 10 # Trauma - was 5
-
-- type: entity
-  parent: BaseWall
-  id: WallPlastic
-  name: plastic wall
-  components:
-  # <Trauma>
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
-  - type: Sprite
-    sprite: Structures/Walls/plastic.rsi
-  - type: Icon
-    sprite: Structures/Walls/plastic.rsi
-  - type: Construction
-    graph: Girder
-    node: plasticWall
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:ChangeConstructionNodeBehavior
-        node: girder
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-  - type: IconSmooth
-    key: walls
-    base: plastic
+    resistance: 5
 
 - type: entity
   parent: BaseWall
@@ -510,13 +305,6 @@
   name: plastitanium wall
   suffix: indestructible
   components:
-  # <Trauma>
-  - type: RustRequiresPathStage
-    pathStage: 11 # Can't rust
-  - type: Penetratable
-    penetrateDamage: 1000
-    damagePenalty: 0.8
-  # </Trauma>
   - type: Sprite
     sprite: Structures/Walls/plastitanium.rsi
   - type: Icon
@@ -540,7 +328,7 @@
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: RadiationBlocker
-    resistance: 10 # Trauma - was 5
+    resistance: 5
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -548,13 +336,6 @@
   name: plastitanium wall
   suffix: ""
   components:
-  # <Trauma>
-  - type: RustRequiresPathStage
-    pathStage: 10 # Ascension
-  - type: Penetratable
-    penetrateDamage: 200
-    damagePenalty: 0.5
-  # </Trauma>
   - type: Destructible
     thresholds:
     - trigger:
@@ -577,17 +358,17 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    sprite: Structures/Walls/plastitanium-diagonal.rsi
     state: state0
   - type: Icon
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    sprite: Structures/Walls/plastitanium-diagonal.rsi
     state: state0
   - type: Damageable
     damageModifierSet: StructuralMetallicStrong
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: RadiationBlocker
-    resistance: 10 # Trauma - was 5
+    resistance: 5
 
 - type: entity
   parent: WallPlastitaniumDiagonalIndestructible
@@ -597,10 +378,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    sprite: Structures/Walls/plastitanium-diagonal.rsi
     state: state0
   - type: Icon
-    sprite: Structures/Walls/plastitanium_diagonal.rsi
+    sprite: Structures/Walls/plastitanium-diagonal.rsi
     state: state0
   - type: Destructible
     thresholds:
@@ -624,27 +405,10 @@
   id: WallReinforced
   name: reinforced wall
   components:
-  # <Trauma>
-  - type: RustRequiresPathStage
-    pathStage: 7 # Toxic blade
-  - type: Penetratable
-    penetrateDamage: 100
-    damagePenalty: 0.25
-  - type: Solution
-    id: food
-    solution:
-      reagents:
-      - ReagentId: Iron
-        Quantity: 33
-      - ReagentId: Carbon
-        Quantity: 7
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
   - type: Sprite
-    sprite: _Trauma/Structures/Walls/solid.rsi # Trauma
+    sprite: Structures/Walls/solid.rsi
   - type: Icon
-    sprite: _Trauma/Structures/Walls/solid.rsi # Trauma
+    sprite: Structures/Walls/solid.rsi
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -703,11 +467,6 @@
   id: WallReinforcedRust
   suffix: rusted
   components:
-  # <Trauma>
-  - type: RustedWall
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
   - type: Sprite
     sprite: Structures/Walls/solid_rust.rsi
   - type: Icon
@@ -727,19 +486,12 @@
   id: WallReinforcedDiagonal
   name: reinforced wall
   components:
-  # <Trauma>
-  - type: RustRequiresPathStage
-    pathStage: 7 # Toxic blade
-  - type: Tag
-    tags:
-    - Diagonal
-  # </Trauma>
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: Structures/Walls/reinforced-diagonal.rsi
     state: state0
   - type: Icon
-    sprite: Structures/Walls/reinforced_diagonal.rsi
+    sprite: Structures/Walls/reinforced-diagonal.rsi
     state: state0
   - type: Damageable
     damageModifierSet: StructuralMetallicStrong
@@ -751,8 +503,8 @@
         !type:DamageTrigger
         damage: 300
       behaviors:
-      #- !type:ChangeConstructionNodeBehavior # Trauma - it has no construction
-      #  node: girder
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
@@ -761,23 +513,15 @@
   - type: RadiationBlocker
     resistance: 5
 
-# Riveting
 - type: entity
   parent: BaseWall
-  id: WallRiveted
-  name: riveted wall
+  id: WallMarble
+  name: marble wall
   components:
-  # <Trauma>
-  - type: RustRequiresPathStage
-    pathStage: 10 # Ascension
-  - type: Penetratable
-    penetrateDamage: 200
-    damagePenalty: 0.5
-  # </Trauma>
   - type: Sprite
-    sprite: Structures/Walls/riveted.rsi
+    sprite: Structures/Walls/marble.rsi
   - type: Icon
-    sprite: Structures/Walls/riveted.rsi
+    sprite: Structures/Walls/marble.rsi
   - type: Damageable
     damageModifierSet: StructuralMetallicStrong
   - type: Injurable
@@ -797,39 +541,40 @@
         acts: [ "Destruction" ]
   - type: IconSmooth
     key: walls
-    base: riveted
+    base: wall
   - type: StaticPrice
     price: 150
 
 - type: entity
   parent: BaseWall
-  id: WallSandstone
-  name: sandstone wall
+  id: WallMarbleIndestructible
+  name: marble wall
+  suffix: indestructible
   components:
   - type: Sprite
-    sprite: Structures/Walls/sandstone.rsi
+    sprite: Structures/Walls/marble.rsi
   - type: Icon
-    sprite: Structures/Walls/sandstone.rsi
-  - type: RCDDeconstructable
-    cost: 6
-    delay: 8
-    fx: EffectRCDDeconstruct8
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          Girder:
-            min: 1
-            max: 1
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+    sprite: Structures/Walls/marble.rsi
   - type: IconSmooth
     key: walls
-    base: sandstone
+    base: wall
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 4000
+  - type: Damageable
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: RadiationBlocker
+    resistance: 5
 
 - type: entity
   parent: BaseWall
@@ -863,8 +608,6 @@
   - type: IconSmooth
     key: walls
     base: silver
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WallCosmicCult
 
 #shuttle walls
 - type: entity
@@ -872,22 +615,15 @@
   id: WallShuttleDiagonal
   name: shuttle wall
   components:
-  # <Trauma>
-  - type: RustRequiresPathStage
-    pathStage: 7 # Toxic blade
-  - type: Penetratable
-    penetrateDamage: 90
-    damagePenalty: 0.3
-  # </Trauma>
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/shuttle_diagonal.rsi
+    sprite: Structures/Walls/shuttle-diagonal.rsi
     state: state0
   - type: Icon
-    sprite: Structures/Walls/shuttle_diagonal.rsi
+    sprite: Structures/Walls/shuttle-diagonal.rsi
     state: state0
-  #- type: Reflect # Trauma - annoying, serves no purpose
-  #  reflectProb: 1
+  - type: Reflect
+    reflectProb: 1
   - type: Pullable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -909,7 +645,7 @@
         - WallLayer
         density: 2000
   - type: Damageable
-    damageModifierSet: StructuralMetallic # Trauma - was StructuralMetallicStrong
+    damageModifierSet: StructuralMetallicStrong
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: Destructible
@@ -938,15 +674,6 @@
   id: WallShuttle
   name: shuttle wall
   components:
-  # <Trauma>
-  - type: RustRequiresPathStage
-    pathStage: 7 # Toxic blade
-  - type: Penetratable
-    penetrateDamage: 90
-    damagePenalty: 0.3
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
   - type: Damageable
     damageModifierSet: StructuralMetallicStrong
   - type: Injurable
@@ -991,8 +718,8 @@
           3: { state: shuttle_construct-3, visible: true}
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
-  #- type: Reflect # Trauma - annoying, serves no purpose
-  #  reflectProb: 1
+  - type: Reflect
+    reflectProb: 1
   - type: Fixtures
     fixtures:
       fix1:
@@ -1010,27 +737,14 @@
   id: WallSolid
   name: solid wall
   components:
-  # <Trauma>
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  - type: Solution
-    id: food
-    solution:
-      maxVol: 30
-      reagents:
-      - ReagentId: Iron
-        Quantity: 28
-      - ReagentId: Carbon
-        Quantity: 2
-  # </Trauma>
   - type: Sprite
-    sprite: _Trauma/Structures/Walls/solid.rsi # Trauma
+    sprite: Structures/Walls/solid.rsi
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: _Trauma/Structures/Walls/solid.rsi # Trauma
+    sprite: Structures/Walls/solid.rsi
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -1059,10 +773,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: Structures/Walls/solid-diagonal.rsi
     state: state0
   - type: Icon
-    sprite: Structures/Walls/solid_diagonal.rsi
+    sprite: Structures/Walls/solid-diagonal.rsi
     state: state0
   - type: Destructible
     thresholds:
@@ -1070,8 +784,8 @@
         !type:DamageTrigger
         damage: 200
       behaviors:
-      #- !type:ChangeConstructionNodeBehavior # Trauma - it has no construction
-      #  node: girder
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
@@ -1083,11 +797,6 @@
   id: WallSolidRust
   suffix: rusted
   components:
-  # <Trauma>
-  - type: RustedWall
-  - type: CosmicCorruptible
-    convertTo: WallCosmicCult
-  # </Trauma>
   - type: Sprite
     sprite: Structures/Walls/solid_rust.rsi
   - type: Icon
@@ -1103,14 +812,97 @@
     damageModifierSet: Metallic # weaker because rust
 
 - type: entity
-  parent: WallPlastitanium
-  id: WallXenoborg
-  name: xenoborg wall
+  parent: BaseWall
+  id: WallSolidChitin
+  name: exodermis wall
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Sprite
+    sprite: Structures/Walls/exo.rsi
+  - type: Icon
+    sprite: Structures/Walls/exo.rsi
+  - type: IconSmooth
+    key: walls
+    base: solid
+  - type: Construction
+    graph: Girder
+    node: wallChitin
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 8
+    fx: EffectRCDDeconstruct8
+
+- type: entity
+  parent: BaseWall
+  id: WallReinforcedChitin
+  name: reinforced exodermis
   components:
   - type: Sprite
-    sprite: Structures/Walls/xenoborg.rsi
+    sprite: Structures/Walls/exo.rsi
   - type: Icon
-    sprite: Structures/Walls/xenoborg.rsi
+    sprite: Structures/Walls/exo.rsi
+    state: rgeneric
+  - type: Damageable
+    damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ReinforcedWallVisuals.DeconstructionStage:
+        ReinforcedWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: reinf_construct-0, visible: true}
+          1: { state: reinf_construct-1, visible: true}
+          2: { state: reinf_construct-2, visible: true}
+          3: { state: reinf_construct-3, visible: true}
+          4: { state: reinf_construct-4, visible: true}
+          5: { state: reinf_construct-5, visible: true}
+  - type: StaticPrice
+    price: 250
+  - type: RadiationBlocker
+    resistance: 5
+  - type: IconSmooth
+    key: walls
+    base: reinf_over
+  - type: Construction
+    graph: Girder
+    node: reinforcedWallChitin
+
+- type: entity
+  parent: WallPlastitanium
+  id: WallXenoborg
+  name: mechadermis wall
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/exo-borg.rsi
+  - type: Icon
+    sprite: Structures/Walls/exo-borg.rsi
   - type: IconSmooth
     key: walls
     base: xenoborg
@@ -1118,15 +910,15 @@
 - type: entity
   parent: WallPlastitaniumDiagonal
   id: WallXenoborgDiagonal
-  name: xenoborg wall
+  name: mechadermis wall
   suffix: diagonal
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/xenoborg_diagonal.rsi
+    sprite: Structures/Walls/exo-borg-diagonal.rsi
     state: state0
   - type: Icon
-    sprite: Structures/Walls/xenoborg_diagonal.rsi
+    sprite: Structures/Walls/exo-borg-diagonal.rsi
     state: state0
 
 - type: entity
@@ -1169,9 +961,7 @@
     key: walls
     base: uranium
   - type: RadiationBlocker
-    resistance: 20 # Goobstation - Radiation Overhaul
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WallCosmicCult
+    resistance: 6
 
 - type: entity
   parent: BaseWall
@@ -1200,10 +990,8 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
-    key: woods
+    key: walls
     base: wood
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WallCosmicCult
 
 - type: entity
   parent: BaseWall
@@ -1245,34 +1033,6 @@
     graph: WebStructures
     node: wall
 
-
-# Lavalend Walls
-
-- type: entity
-  parent: BaseWall
-  id: WallNecropolis
-  name: stone wall
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/necropolis.rsi
-  - type: Icon
-    sprite: Structures/Walls/necropolis.rsi
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 1000
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: IconSmooth
-    key: walls
-    base: necropolis
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 10 # Ascension
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WallCosmicCult
-
 - type: entity
   parent: BaseWall
   id: WallMining
@@ -1293,15 +1053,7 @@
   - type: IconSmooth
     key: walls
     base: mining
-  - type: RandomIconSmooth
-    randomStates:
-    - mining
-    - miningB
   - type: Appearance
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 7 # Toxic blade
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WallCosmicCult
 
 - type: entity
   parent: WallDiagonalBase
@@ -1310,10 +1062,10 @@
   components:
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/mining_diagonal.rsi
+    sprite: Structures/Walls/mining-diagonal.rsi
     state: state0
   - type: Icon
-    sprite: Structures/Walls/mining_diagonal.rsi
+    sprite: Structures/Walls/mining-diagonal.rsi
     state: state0
   - type: Damageable
     damageModifierSet: StructuralMetallicStrong
@@ -1335,58 +1087,6 @@
           collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
-
-
-# Vault Walls
-
-- type: entity
-  parent: BaseWall
-  id: WallVaultAlien
-  name: alien vault wall
-  description: A mysterious ornate looking wall. There may be ancient dangers inside.
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/vault.rsi
-    state: alienvault
-  - type: Icon
-    sprite: Structures/Walls/vault.rsi
-    state: alienvault
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 7 # Toxic blade
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WallCosmicCult
-
-- type: entity
-  parent: WallVaultAlien
-  id: WallVaultRock
-  name: rock vault wall
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/vault.rsi
-    state: rockvault
-  - type: Icon
-    sprite: Structures/Walls/vault.rsi
-    state: rockvault
-
-- type: entity
-  parent: WallVaultAlien
-  id: WallVaultSandstone
-  name: sandstone vault wall
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/vault.rsi
-    state: sandstonevault
-  - type: Icon
-    sprite: Structures/Walls/vault.rsi
-    state: sandstonevault
 
 # Mime
 
@@ -1410,52 +1110,13 @@
         layer:
         - GlassLayer
   - type: Airtight
-  - type: RustRequiresPathStage # Goobstation
-    pathStage: 11 # Can't rust
 
 - type: entity
   id: WallForce
   name: force wall
   components:
-  # <Trauma>
-  - type: SpawnAnimation
-    animationLength: 1
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.SpawnAnimationVisuals.Spawned:
-        base:
-          True: { state: forcewall }
-          False: { state: forcewallspawn }
-  - type: RustRequiresPathStage
-    pathStage: 11 # Can't rust
-  - type: PreventCollide
-    whitelist:
-      components:
-      - Wizard
-      - Apprentice
-      - BibleUser
-  - type: Damageable
-  - type: Injurable
-    damageContainer: Inorganic
-  - type: Clickable
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 350
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WindowShatter
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: Tag
-    tags:
-    - BlockLightning
-  # </Trauma>
   - type: TimedDespawn
-    lifetime: 15 # Trauma - was 10
+    lifetime: 10
   - type: Wall
   - type: Physics
     bodyType: Static
@@ -1472,25 +1133,20 @@
   - type: Airtight
   - type: Sprite
     sprite: Structures/Magic/forcewall.rsi
-    # <Trauma> - replace single state with a mapped layer, for animation to work
-    layers:
-    - state: forcewall
-      map: [ "base" ]
-    # </Trauma>
+    state: forcewall
   - type: Icon
     sprite: Structures/Magic/forcewall.rsi
-    state: forcewallspawn # Trauma - was forcewall
+    state: forcewall
 
 - type: entity
   parent: BaseWall
-  id: WallCobblebrick
-  name: cobblestone brick wall
-  description: Stone by stone, perfectly fitted together to form a wall.
+  id: WallConcrete
+  name: concrete wall
   components:
   - type: Sprite
-    sprite: Structures/Walls/cobblebrick.rsi
+    sprite: Structures/Walls/concrete.rsi
   - type: Icon
-    sprite: Structures/Walls/cobblebrick.rsi
+    sprite: Structures/Walls/concrete.rsi
   - type: RCDDeconstructable
     cost: 6
     delay: 8
@@ -1499,94 +1155,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 20 # Goobstation
+        damage: 100
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
-    key: cobblebricks
-    base: cobblebrick
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WallCosmicCult
-
-- type: entity
-  parent: WallCobblebrick
-  id: WallBasaltCobblebrick
-  name: basalt brick wall
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/cobblebrick_basalt.rsi
-  - type: Icon
-    sprite: Structures/Walls/cobblebrick_basalt.rsi
-  - type: IconSmooth
-    key: cobblebricks
-    base: cobblebrick
-
-- type: entity
-  parent: WallCobblebrick
-  id: WallSnowCobblebrick
-  name: snow brick wall
-  description: A cold, not-so-impenetrable wall.
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/cobblebrick_snow.rsi
-  - type: Icon
-    sprite: Structures/Walls/cobblebrick_snow.rsi
-  - type: IconSmooth
-    key: cobblebricks
-    base: cobblebrick
-
-- type: entity
-  parent: WallCobblebrick
-  id: WallAsteroidCobblebrick
-  name: asteroid stone brick wall
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/cobblebrick_asteroid.rsi
-  - type: Icon
-    sprite: Structures/Walls/cobblebrick_asteroid.rsi
-  - type: IconSmooth
-    key: cobblebricks
-    base: cobblebrick
-
-- type: entity
-  parent: WallCobblebrick
-  id: WallSandCobblebrick
-  name: sandstone brick wall
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/cobblebrick_sand.rsi
-  - type: Icon
-    sprite: Structures/Walls/cobblebrick_sand.rsi
-  - type: IconSmooth
-    key: cobblebricks
-    base: cobblebrick
-
-- type: entity
-  parent: WallCobblebrick
-  id: WallChromiteCobblebrick
-  name: chromite brick wall
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/cobblebrick_chromite.rsi
-  - type: Icon
-    sprite: Structures/Walls/cobblebrick_chromite.rsi
-  - type: IconSmooth
-    key: cobblebricks
-    base: cobblebrick
-
-- type: entity
-  parent: WallCobblebrick
-  id: WallAndesiteCobblebrick
-  name: andesite brick wall
-  components:
-  - type: Sprite
-    sprite: Structures/Walls/cobblebrick_andesite.rsi
-  - type: Icon
-    sprite: Structures/Walls/cobblebrick_andesite.rsi
-  - type: IconSmooth
-    key: cobblebricks
-    base: cobblebrick
+    key: walls
+    base: concrete
 
 # Cardboard
 

@@ -31,7 +31,10 @@
     - ForceFixRotations
     - Window
   - type: Sprite
-    drawdepth: WallTops
+    sprite: Structures/Windows/window-base.rsi
+  - type: Icon
+    sprite: Structures/Windows/window-base.rsi
+    state: full
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -54,6 +57,8 @@
   - type: IconSmooth
     key: walls
     base: window
+  - type: PlacementReplacement
+    key: walls
   - type: InteractionPopup
     interactSuccessString: comp-window-knock
     messagePerceivedByOthers: comp-window-knock
@@ -78,9 +83,9 @@
   id: Window
   components:
   - type: Sprite
-    sprite: Structures/Windows/window.rsi
+    sprite: Structures/Windows/window-base.rsi
   - type: Icon
-    sprite: Structures/Windows/window.rsi
+    sprite: Structures/Windows/window-base.rsi
     state: full
   - type: Damageable
     damageModifierSet: Glass
@@ -110,10 +115,9 @@
   description: Smart tinted window with state switching option.
   components:
   - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/tinted_window.rsi
+    sprite: Structures/Windows/window-tinted.rsi
   - type: Icon
-    sprite: Structures/Windows/tinted_window.rsi
+    sprite: Structures/Windows/window-tinted.rsi
   - type: IconSmooth
     base: twindow
   - type: Construction
@@ -282,8 +286,7 @@
     - Window
   components:
   - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/window_diagonal.rsi
+    sprite: Structures/Windows/window-base-diagonal.rsi
     state: state0
   - type: Tag
     tags:
@@ -291,10 +294,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls
     base: state
   - type: Icon
-    sprite: Structures/Windows/window_diagonal.rsi
+    sprite: Structures/Windows/window-base-diagonal.rsi
     state: state0
   - type: Fixtures
     fixtures:
@@ -316,7 +319,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks_diagonal.rsi
+      sprite: Structures/Windows/cracks-diagonal.rsi
   - type: Construction
     graph: WindowDiagonal
     node: windowDiagonal

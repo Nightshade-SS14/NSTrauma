@@ -7,13 +7,11 @@ stack-plastic = plastic
 stack-silver = silver
 stack-gold = gold
 stack-reinforced-glass = reinforced glass
-# Trauma - plasma -> phoron
-stack-plasma-glass = glass-phoron
+stack-plasma-glass = plasma glass
 stack-uranium = uranium
 stack-uranium-glass = uranium glass
 stack-clockwork-glass = clockwork glass
-# Trauma - plasma -> phoron
-stack-reinforced-plasma-glass = reinforced glass-phoron
+stack-reinforced-plasma-glass = reinforced plasma glass
 stack-reinforced-uranium-glass = reinforced uranium glass
 stack-gunpowder = gunpowder
 stack-cardboard = cardboard
@@ -82,10 +80,6 @@ stack-artifact-fragment = artifact {$amount ->
     [1] fragment
     *[other] fragments
 }
-stack-xenoborg-crystal = xenoborg {$amount ->
-    [1] crystal
-    *[other] crystals
-}
 stack-conveyor-belt = {$amount ->
     [1] conveyor belt
     *[other] conveyor belts
@@ -110,8 +104,7 @@ stack-rolling-paper = rolling {$amount ->
 
 stack-fulton = fulton
 stack-credit = speso
-# Trauma - plasma -> phoron
-stack-plasma = phoron
+stack-plasma = plasma
 stack-biomass = biomass
 stack-pyrotton = pyrotton
 stack-sharkminnow-tooth = sharkminnow tooth
@@ -120,8 +113,7 @@ stack-telecrystal = telecrystal
 stack-gold-ore = gold ore
 stack-rough-diamond = rough diamond
 stack-iron-ore = iron ore
-# Trauma - plasma -> phoron
-stack-plasma-ore = phoron ore
+stack-plasma-ore = plasma ore
 stack-silver-ore = silver ore
 stack-space-quartz = space quartz
 stack-uranium-ore = uranium ore
@@ -238,6 +230,9 @@ stack-gray-concrete-smooth = gray concrete smooth
 stack-old-concrete-tile = old concrete tile
 stack-old-concrete-mono-tile = old concrete mono tile
 stack-old-concrete-smooth = old concrete smooth
+stack-ironsand-concrete-tile = ironsand concrete tile
+stack-ironsand-concrete-mono-tile = ironsand concrete mono tile
+stack-ironsand-concrete-smooth = ironsand concrete smooth
 stack-silver-floor-tile = silver floor tile
 stack-bcircuit-floor-tile = bcircuit floor tile
 stack-grass-floor-tile = grass floor tile
@@ -259,13 +254,19 @@ stack-large-wood-floor = large wood floor
 stack-red-circuit-floor = red-circuit floor
 stack-asteroid-astro-sand-floor = asteroid astro-sand floor
 stack-desert-astro-sand-floor = desert astro-sand floor
-stack-xeno-floor = xeno floor
-stack-xeno-steel = xeno steel tile
-stack-xeno-steel-corner = xeno steel corner tile
-stack-xenoborg = xenoborg tile
-stack-xeno-maint = xeno techmaint
-stack-dark-squiggly = dark steel squiggly tile
 stack-white-marble-floor = white marble floor
 stack-dark-marble-floor = dark marble floor
 stack-plasma-marble-floor = plasmarble floor
 stack-uranium-marble-floor = uranium marble floor
+stack-astro-ironsand-floor = astro-ironsand floor
+stack-astro-ironsand-floor-borderless = borderless astro-ironsand floor
+stack-exo-hull-floor = exodermis hull floor
+stack-exo-viscera-floor = exodermis viscera floor
+stack-exo-techmaint-floor = exodermis techmaint floor
+stack-exo-horizontal-floor = exodermis horizontal floor
+stack-exo-vertical-floor = exodermis vertical floor
+stack-exo-corner-ne-floor = exodermis NE corner floor
+stack-exo-corner-nw-floor = exodermis NW corner floor
+stack-exo-corner-se-floor = exodermis SE corner floor
+stack-exo-corner-sw-floor = exodermis SW corner floor
+stack-exo-borg-floor = mechadermis floor

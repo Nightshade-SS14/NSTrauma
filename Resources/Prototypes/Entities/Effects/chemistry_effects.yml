@@ -199,7 +199,6 @@
     replaceableTiles:
     - Plating
     - Lattice
-    - TrainLattice
     replacementTiles:
     - FloorMetalFoam
   - type: Damageable

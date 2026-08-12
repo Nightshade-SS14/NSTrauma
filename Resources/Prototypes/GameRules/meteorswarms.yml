@@ -1,4 +1,4 @@
-## Event Tables
+# Event Tables
 
 - type: entityTable
   id: MeteorSwarmDustEventsTable
@@ -37,8 +37,6 @@
     - id: CowSwarm
     - id: PotatoSwarm
     - id: FunSwarm
-    - id: MeteorSwarmFlesh
-    - id: MeteorSwarmKudzu
     - id: ImmovableRodSpawn
 
 - type: weightedRandomEntity
@@ -53,16 +51,6 @@
     MeteorRockPlasma: 2
     MeteorRockDiamond: 2
     MeteorRockUranium: 0.5
-    MeteorRockBananium: 0.5
-    MeteorRockBSCrystal: 0.5 # Goobstation
-
-- type: weightedRandomEntity
-  id: MeteorSpawnFleshMonstersTable
-  weights:
-    MobFleshGolemSalvage: 1
-    MobFleshClampSalvage: 1
-    MobFleshLoverSalvage: 1
-    MobFleshJaredSalvage: 1
 
 # Event Schedulers
 
@@ -74,8 +62,8 @@
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 600 # 10 min
     minMaxEventTiming:
-      min: 300 # 5 min - Goob Edit
-      max: 5400 # 90 min - Goob Edit
+      min: 750 # 12.5 min
+      max: 930 # 17.5 min
     scheduledGameRules: !type:NestedSelector
       tableId: BasicMeteorSwarmEventsTable
 
@@ -87,8 +75,8 @@
   - type: BasicStationEventScheduler
     minimumTimeUntilFirstEvent: 600 # 10 min
     minMaxEventTiming:
-      min: 300 # 5 min - Goob Edit
-      max: 5400 # 90 min - Goob Edit
+      min: 750 # 12.5 min
+      max: 930 # 17.5 min
     scheduledGameRules: !type:NestedSelector
       tableId: MeteorSwarmMildTable
 
@@ -101,7 +89,7 @@
     scheduledGameRules: !type:NestedSelector
       tableId: BasicMeteorSwarmEventsTable
 
-## Game Rules
+# Game Rules
 
 - type: entity
   parent: BaseGameRule
@@ -225,7 +213,7 @@
     minimumPlayers: 25
   - type: ImmovableRodRule
     rodPrototypes:
-    - id: ImmovableRodKeepTiles
+    - id: ImmovableRodKeepTilesStill
       prob: 0.94
       orGroup: rodProto
     - id: ImmovableRodMop
@@ -327,39 +315,3 @@
     meteorsPerWave:
       min: 8
       max: 12
-
-- type: entity
-  parent: MeteorSwarm
-  id: MeteorSwarmFlesh
-  components:
-  - type: StationEvent
-    weight: 4
-  - type: MeteorSwarm
-    announcement: station-event-bio-swarm-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
-    meteors:
-      MeteorFlesh: 1
-    waves:
-      min: 2
-      max: 3
-    meteorsPerWave:
-      min: 5
-      max: 6
-
-- type: entity
-  parent: MeteorSwarm
-  id: MeteorSwarmKudzu
-  components:
-  - type: StationEvent
-    weight: 5
-  - type: MeteorSwarm
-    announcement: station-event-bio-swarm-start-announcement
-    announcementSound: /Audio/Announcements/attention.ogg
-    meteors:
-      MeteorKudzu: 1
-    waves:
-      min: 2
-      max: 3
-    meteorsPerWave:
-      min: 3
-      max: 5

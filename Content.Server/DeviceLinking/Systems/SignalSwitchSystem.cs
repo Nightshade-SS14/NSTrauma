@@ -1,7 +1,4 @@
-// <Trauma>
-using Content.Goobstation.Common.DeviceLinking;
-// </Trauma>
-using Content.Server.DeviceLinking.Components;
+using Content.Shared.DeviceLinking.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Lock;
 using Robust.Shared.Audio;
@@ -12,9 +9,9 @@ namespace Content.Server.DeviceLinking.Systems;
 public sealed partial class SignalSwitchSystem : EntitySystem
 {
     [Dependency] private DeviceLinkSystem _deviceLink = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private LockSystem _lock = default!;
-    [Dependency] private SharedAppearanceSystem _appearance = default!; // CorvaxGoob-ButtonsVisuals
 
     public override void Initialize()
     {
@@ -27,8 +24,6 @@ public sealed partial class SignalSwitchSystem : EntitySystem
     private void OnInit(EntityUid uid, SignalSwitchComponent comp, ComponentInit args)
     {
         _deviceLink.EnsureSourcePorts(uid, comp.OnPort, comp.OffPort, comp.StatusPort);
-
-        UpdateAppearance((uid, comp)); // CorvaxGoob-ButtonsVisuals
     }
 
     private void OnActivated(EntityUid uid, SignalSwitchComponent comp, ActivateInWorldEvent args)
@@ -46,21 +41,13 @@ public sealed partial class SignalSwitchSystem : EntitySystem
         if (comp.OnPort != comp.OffPort)
         {
             _deviceLink.SendSignal(uid, comp.StatusPort, comp.State);
+            _appearance.SetData(uid, SwitchVisuals.Visuals, comp.State);
         }
 
         var audioParams = comp.ClickSound?.Params ?? AudioParams.Default;
         audioParams = audioParams.WithVariation(0.125f).AddVolume(8f);
         _audio.PlayPvs(comp.ClickSound, uid, audioParams);
 
-        UpdateAppearance((uid, comp)); // CorvaxGoob-ButtonsVisuals
-
         args.Handled = true;
     }
-
-    // CorvaxGoob-ButtonsVisuals-Start
-    private void UpdateAppearance(Entity<SignalSwitchComponent> entity)
-    {
-        _appearance.SetData(entity.Owner, SignalSwitchVisuals.State, entity.Comp.State ? SignalSwitchState.On : SignalSwitchState.Off);
-    }
-    // CorvaxGoob-ButtonsVisuals-End
 }

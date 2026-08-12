@@ -1,27 +1,3 @@
-# SPDX-FileCopyrightText: 2022 Moony <moony@hellomouse.net>
-# SPDX-FileCopyrightText: 2022 Morb <14136326+Morb0@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2022 brainfood1183 <113240905+brainfood1183@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Emisse <99158783+Emisse@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Kara <lunarautomaton6@gmail.com>
-# SPDX-FileCopyrightText: 2023 Kit0vras <123590995+Kit0vras@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 NULL882 <104377798+NULL882@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 Nylux <33198989+Nylux@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 PixelTK <85175107+PixelTheKermit@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2023 potato1234_x <79580518+potato1234x@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ed <96445749+TheShuEd@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Flareguy <78941145+Flareguy@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 IProduceWidgets <107586145+IProduceWidgets@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 MACMAN2003 <macman2003c@gmail.com>
-# SPDX-FileCopyrightText: 2024 Nemanja <98561806+EmoGarbage404@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 Ps3Moira <113228053+ps3moira@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2024 TakoDragon <69509841+BackeTako@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Aiden <aiden@djkraz.com>
-# SPDX-FileCopyrightText: 2025 Southbridge <7013162+southbridge-fur@users.noreply.github.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 tiles-space = space
 tiles-plating = plating
 tiles-rcd-plating = RCD plating
@@ -122,6 +98,9 @@ tiles-gold-tile = gold tile
 tiles-silver-tile = silver tile
 tiles-glass-floor = glass floor
 tiles-reinforced-glass-floor = reinforced glass floor
+tiles-uranium-glass-floor = uranium glass floor
+tiles-plasma-glass-floor = plasma glass floor
+tiles-plastitanium-glass-floor = plastitanium glass floor
 tiles-metal-foam = metal foam floor
 tiles-green-circuit-floor = green circuit floor
 tiles-blue-circuit-floor = blue circuit floor
@@ -145,7 +124,6 @@ tiles-asteroid-plating = asteroid plating
 tiles-asteroid-ironsand = asteroid ironsand
 tiles-asteroid-ironsand-borderless = borderless asteroid ironsand
 tiles-cave = cave
-tiles-cave-drought = cave drought
 tiles-flesh-floor = flesh floor
 tiles-techmaint3-floor = grated maintenance floor
 tiles-techmaint2-floor = steel maintenance floor
@@ -170,15 +148,22 @@ tiles-astro-ice = astro-ice
 tiles-astro-snow = astro-snow
 tiles-astro-asteroid-sand = asteroid astro-sand
 tiles-astro-asteroid-sand-borderless = borderless asteroid astro-sand
+tiles-astro-ironsand = astro-ironsand
+tiles-astro-ironsand-borderless = borderless astro-ironsand
 tiles-desert-astro-sand = desert astro-sand
 tiles-wood-large = large wood
-tiles-xeno-floor = xeno floor
-tiles-xeno-steel = xeno steel tile
-tiles-xeno-steel-corner = xeno steel corner tile
-tiles-xeno-maint = xeno techmaint
-tiles-xenoborg-floor = xenoborg tile
-tiles-dark-squiggly = dark steel squiggly tile
 tiles-white-marble = white marble tile
 tiles-dark-marble = dark marble tile
 tiles-plasma-marble = plasmarble tile
 tiles-uranium-marble = uranium marble tile
+
+tiles-exo-viscera = exodermis viscera floor
+tiles-exo-hull = exodermis hull floor
+tiles-exo-techmaint = exodermis techmaint floor
+tiles-exo-horizontal = exodermis horizontal floor
+tiles-exo-vertical = exodermis vertical floor
+tiles-exo-corner-ne = exodermis NE corner floor
+tiles-exo-corner-nw = exodermis NW corner floor
+tiles-exo-corner-se = exodermis SE corner floor
+tiles-exo-corner-sw = exodermis SW corner floor
+tiles-exo-borg = mechadermis floor
