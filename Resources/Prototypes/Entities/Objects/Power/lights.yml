@@ -219,7 +219,7 @@
   description: A light fixture.
   components:
   - type: LightBulb
-    color: "#FFBE7E" # Trauma - was 5000K, now 3300K color temp
+    color: "#D9D6FF" # Nightshade - cool, light purple
     lightEnergy: 0.8
     lightRadius: 10
     lightSoftness: 1
