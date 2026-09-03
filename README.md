@@ -1,23 +1,19 @@
-<p align="center"> <img alt="Space Station 14" width="750" height="600" src="https://raw.githubusercontent.com/space-wizards/asset-dump/de329a7898bb716b9d5ba9a0cd07f38e61f1ed05/github-logo.svg" /></p>
+<p align="center"> <img alt="Space Station 14" width="750" height="600" src="" /></p>
 
-This is a fork of [SS14](https://github.com/space-wizards/space-station-14) called Trauma Station.
+This is a fork of [Trauma-Station](https://github.com/Trauma-Station/Trauma-Station), which is a fork of [SS14](https://github.com/space-wizards/space-station-14).
+Nightshade is in early stages of development.
 
 ## Links
 
-[Trauma Station Discord](https://discord.gg/7ZKs7HadK5) | [Trauma Station Wiki](https://wiki.traumastation.com/wiki/Main_Page) | [Devbus Discord Server](https://discord.gg/f3rJaCuK)
+[Trauma Station Wiki](https://wiki.traumastation.com/wiki/Main_Page) | [Devbus Discord Server](https://discord.gg/f3rJaCuK)
 
 ## Documentation/Wiki
-
-Trauma itself has a non-technical wiki on its content [here](https://wiki.traumastation.com/wiki/Main_Page)
 
 SS14 Docs [docs site](https://docs.spacestation14.com/) has documentation on SS14's content, engine, game design, and more. It also has lots of resources for new contributors to the project.
 
 ## Contributing
 
-We are happy to accept contributions from anybody. Get in [our Discord Server](https://discord.gg/7ZKs7HadK5) if you want to help. Feel free to check the [list of issues](https://github.com/Trauma-Station/Trauma-Station/issues) that need to be done and anybody can pick them up. Don't be afraid to ask for help either!
-Please read the [Contribution Guidelines](/CONTRIBUTING.md) before opening a pull request.
-
-We are not accepting translations of the game on our repository.
+We are happy to accept contributions from anybody. Please read the [Contribution Guidelines](/CONTRIBUTING.md) before opening a pull request. We are not accepting translations of the game on our repository.
 
 ## AI-generated contributions disclaimer
 This project does not accept low-effort or wholesale AI-generated contributions. Examples include, but are not limited to:
