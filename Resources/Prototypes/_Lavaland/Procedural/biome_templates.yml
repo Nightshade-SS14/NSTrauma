@@ -120,7 +120,7 @@
       cellularDistanceFunction: Euclidean
       cellularReturnType: Distance2
     entities:
-    - WallRockBasalt
+    - WallRock
   - !type:BiomeDummyLayer
     id: Loot
   # Fill basalt
@@ -361,7 +361,7 @@
       frequency: 0.1
       gain: 0.5
     entities:
-    - WallRockBasalt
+    - WallRock
   - !type:BiomeDummyLayer
     id: Loot
   # Fill basalt
@@ -465,7 +465,7 @@
       cellularDistanceFunction: Euclidean
       cellularReturnType: Distance2
     entities:
-    - WallRockBasalt
+    - WallRock
   - !type:BiomeDummyLayer
     id: Loot
   # Fill basalt
