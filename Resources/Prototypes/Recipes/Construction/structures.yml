@@ -53,6 +53,15 @@
   graph: Girder
   targetNode: girder
 
+  # <Trauma>
+  theory:
+    WallsKnowledge: 0
+    FabricationKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 2
+  useQuality: false
+  # </Trauma>
+
 - type: construction
   parent: Girder
   id: ReinforcedGirder
@@ -119,6 +128,11 @@
   conditions:
   - !type:TileNotBlocked
     failIfSpace: false
+
+  # <Trauma>
+  theory:
+    WallsKnowledge: 0
+  # </Trauma>
 # endregion Walls
 
 # region Grilles
@@ -130,6 +144,14 @@
   conditions:
   - !type:TileNotBlocked
     failIfSpace: false
+
+  # <Trauma>
+  theory:
+    WallsKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 1
+  useQuality: false
+  # </Trauma>
 
 - type: construction
   parent: Grille
@@ -246,6 +268,13 @@
   graph: Firelock
   targetNode: Firelock
 
+  # <Trauma>
+  theory:
+    InfrastructureKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 2
+  # </Trauma>
+
 - type: construction
   parent: Firelock
   id: FirelockGlass
@@ -296,6 +325,12 @@
     - Lattice
     - Plating
 
+  # <Trauma>
+  theory:
+    FurnitureKnowledge: 0
+  useQuality: false
+  # </Trauma>
+
 # endregion Floors
 
 # region Barricades
@@ -305,12 +340,26 @@
   graph: Barricade
   targetNode: barricadefull
 
+  # <Trauma>
+  theory:
+    FurnitureKnowledge: 0
+  practical:
+    CarvingKnowledge: 2
+  # </Trauma>
+
 - type: construction
   parent: BaseStructureFullTileDirectional
   id: BarricadeDirectional
   name: construction-recipe-barricade-directional
   graph: BarricadeDirectional
   targetNode: barricadefull
+
+  # <Trauma>
+  theory:
+    FurnitureKnowledge: 0
+  practical:
+    CarvingKnowledge: 2
+  # </Trauma>
 # endregion Barricades
 
 # region Railings
@@ -319,6 +368,13 @@
   id: Railing
   graph: Railing
   targetNode: railing
+
+  # <Trauma>
+  theory:
+    FurnitureKnowledge: 0 # it's just rods
+  practical:
+    MetalworkingKnowledge: 1
+  # </Trauma>
 
 - type: construction
   parent: Railing
@@ -347,6 +403,13 @@
   graph: FenceMetal
   targetNode: straight
 
+  # <Trauma>
+  theory:
+    WallsKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 1
+  # </Trauma>
+
 - type: construction
   parent: FenceMetal
   id: FenceMetalCorner
@@ -371,6 +434,13 @@
   id: FenceWood
   graph: FenceWood
   targetNode: straight
+
+  # <Trauma>
+  theory:
+    WallsKnowledge: 0
+  practical:
+    CarvingKnowledge: 1
+  # </Trauma>
 
 - type: construction
   parent: FenceWood
@@ -433,6 +503,13 @@
   graph: Airlock
   targetNode: airlock
 
+  # <Trauma>
+  theory:
+    AirlocksKnowledge: 0
+  practical:
+    MechanicsKnowledge: 2
+  # </Trauma>
+
 - type: construction
   parent: Airlock
   id: AirlockGlass
@@ -444,11 +521,25 @@
   graph: AirlockShuttle
   targetNode: airlock
 
+  # <Trauma>
+  theory:
+    AirlocksKnowledge: 0
+  practical:
+    MechanicsKnowledge: 2
+  # </Trauma>
+
 - type: construction
   parent: AirlockShuttle
   id: AirlockGlassShuttle
   name: construction-recipe-airlock-glass-shuttle
   targetNode: airlockGlass
+
+  # <Trauma>
+  theory:
+    AirlocksKnowledge: 0
+  practical:
+    MechanicsKnowledge: 2
+  # </Trauma>
 # endregion Airlocks
 
 # region Windoors
@@ -457,6 +548,14 @@
   id: Windoor
   graph: Windoor
   targetNode: windoor
+
+  # <Trauma>
+  theory:
+    WindowsKnowledge: 0
+    AirlocksKnowledge: 0
+  practical:
+    MechanicsKnowledge: 2
+  # </Trauma>
 
 - type: construction
   parent: Windoor
@@ -473,6 +572,12 @@
   conditions:
   - !type:TileNotBlocked
   - !type:AgainstWall
+
+  # <Trauma>
+  theory:
+    ElectronicsKnowledge: 0
+  useQuality: false
+  # </Trauma>
 
 - type: construction
   parent: LightTubeFixture
@@ -508,6 +613,13 @@
   id: WoodDoor
   targetNode: woodDoor
 
+  # <Trauma>
+  theory:
+    DoorsKnowledge: 0
+  practical:
+    CarvingKnowledge: 2
+  # </Trauma>
+
 - type: construction
   parent: SilverDoor
   id: PlasmaDoor
@@ -522,6 +634,12 @@
   parent: SilverDoor
   id: PaperDoor
   targetNode: paperDoor
+
+  # <Trauma>
+  theory:
+    DoorsKnowledge: 0
+  practical: {}
+  # </Trauma>
 
 - type: construction
   parent: SilverDoor
@@ -557,6 +675,13 @@
   graph: BananiumStatueClown
   targetNode: bananiumStatue
 
+  # <Trauma>
+  theory:
+    BananiumKnowledge: 0
+  practical:
+    CarvingKnowledge: 4
+  # </Trauma>
+
 - type: construction
   parent: BaseStructureFullTile
   id: BananiumAltar
@@ -574,6 +699,14 @@
   targetNode: solidSecretDoor
   placementMode: SnapgridCenter
 
+  # <Trauma>
+  theory:
+    WallsKnowledge: 0
+    DoorsKnowledge: 0
+    ElectronicsKnowledge: 0
+  useQuality: false
+  # </Trauma>
+
 - type: construction
   parent: BaseStructureFullTileDirectional
   id: EnergyGate
@@ -585,6 +718,12 @@
   id: ConveyorBelt
   graph: ConveyorGraph
   targetNode: entity
+
+  # <Trauma>
+  theory:
+    ElectronicsKnowledge: 0
+  useQuality: false
+  # </Trauma>
 
 - type: construction
   parent: BaseStructureFullTile
@@ -598,15 +737,34 @@
   graph: StationAiCore
   targetNode: stationAiCore
 
+  # <Trauma>
+  theory:
+    ElectronicsKnowledge: 3
+  practical:
+    ElectronicsKnowledge: 3
+  # </Trauma>
+
 - type: construction
   parent: BaseStructureFullTile
   id: Bonfire
   graph: Bonfire
   targetNode: bonfire
 
+  # <Trauma>
+  theory:
+    FurnitureKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseStructureFullTile
   id: BonfireStake
   graph: Bonfire
   targetNode: bonfireStake
+
+  # <Trauma>
+  theory:
+    FurnitureKnowledge: 0
+  practical:
+    CarvingKnowledge: 2
+  # </Trauma>
 # endregion Miscallaneous
