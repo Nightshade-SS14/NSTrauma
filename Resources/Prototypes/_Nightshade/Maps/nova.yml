@@ -1,7 +1,7 @@
 - type: gameMap
   id: Nova
   mapName: 'Nova'
-  mapPath: /Maps/_Ronstation/nova.yml
+  mapPath: /Maps/_Nightshade/nova.yml
   minPlayers: 0
   maxPlayers: 35
   stations:
@@ -13,7 +13,7 @@
         nameGenerator: !type:NanotrasenNameGenerator
           prefixCreator: 'BT'
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/_Ronstation/Shuttles/emergency_nova.yml
+        emergencyShuttlePath: /Maps/_Nightshade/Shuttles/emergency_nova.yml
       - type: StationJobs
         availableJobs:
           # Command
