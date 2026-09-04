@@ -9,13 +9,6 @@
     snap:
     - Window
   components:
-  # <Trauma>
-  - type: SoundBlocker
-    soundBlockPercent: 0.5
-  - type: ReflectiveSurface
-  - type: PlacementReplacement
-    key: windows
-  # </Trauma>
   - type: Anchorable
     flags:
     - Anchorable
@@ -112,7 +105,6 @@
   parent: Window
   id: TintedWindow
   name: tinted window
-  description: Smart tinted window with state switching option.
   components:
   - type: Sprite
     sprite: Structures/Windows/window-tinted.rsi
@@ -126,22 +118,6 @@
   - type: Occluder
   - type: StaticPrice
     price: 70
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WindowCosmicCult
-  - type: ToggleableOccluder # Goob
-  - type: DeviceLinkSink # Goob
-    ports:
-    - On
-    - Off
-    - Toggle
-
-- type: entity # Goob
-  parent: TintedWindow
-  id: TintedWindowTransparent
-  suffix: Transparent
-  components:
-  - type: Occluder
-    enabled: false
 
 - type: entity
   abstract: true
@@ -166,14 +142,10 @@
     snap:
     - Window
   components:
-  # <Trauma>
-  - type: ReflectiveSurface
-  # <Trauma>
   - type: WallMount
     arc: 360 # interact despite grilles
   - type: Tag
     tags:
-    - Directional # Trauma
     - Window
   - type: MeleeSound
     soundGroups:

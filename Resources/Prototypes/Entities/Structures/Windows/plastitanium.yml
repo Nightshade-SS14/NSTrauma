@@ -9,9 +9,6 @@
     snap:
     - Window
   components:
-  # <Trauma>
-  - type: ReflectiveSurface
-  # </Trauma>
   - type: RCDDeconstructable
     deconstructable: false
   - type: MeleeSound

@@ -7,15 +7,6 @@
     snap:
     - Wall
   components:
-  # <Trauma>
-  - type: FishingSpot
-    fishList: !type:NestedSelector
-      tableId: PlasmaFishingLootTable
-    fishDefaultTimer: 20.0
-    fishTimerVariety: 15.0
-  - type: CosmicCorruptible
-    convertTo: FloorCosmicDecay
-  # </Trauma>
   - type: TileEmission
     color: "#c906f3"
   - type: StepTrigger
@@ -24,9 +15,6 @@
     blacklist:
       tags:
       - Catwalk
-    triggerGroups: # Goobstation
-      types:
-      - Lava
   - type: TileEntityEffect
     effects:
     - !type:Flammable
@@ -62,18 +50,6 @@
         - ItemMask
         density: 1000
         hard: false
-      # Goobstation - fishing
-      fishing:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.4
-        layer:
-        - ItemMask
-        mask:
-        - HighImpassable
-        density: 1000
-        hard: false
-    # Goobstation - fishing
   - type: Tag
     tags:
     - HideContextMenu

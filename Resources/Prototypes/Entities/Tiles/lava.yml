@@ -7,15 +7,6 @@
     snap:
     - Wall
   components:
-  # <Trauma>
-  - type: FishingSpot
-    fishList: !type:NestedSelector
-      tableId: LavaFishingLootTable
-    fishDefaultTimer: 20.0
-    fishTimerVariety: 15.0
-  - type: CosmicCorruptible
-    convertTo: FloorCosmicDecay
-  # </Trauma>
   - type: TileEmission
     color: "#FF4500"
   - type: StepTrigger
@@ -24,20 +15,10 @@
     blacklist:
       tags:
         - Catwalk
-    triggerGroups: # Goobstation
-      types:
-        - Lava
   - type: TileEntityEffect
     effects:
-    # <Trauma>
-    - !type:AdjustTemperature
-      amount: 10000 # thermal energy, not temperature!
-    - !type:ModifyStatusEffect
-      effectProto: InLavaStatusEffect
-      time: 1
-    # </Trauma>
     - !type:Flammable
-      multiplier: 2.5 # Lavaland Change - was 3.75
+      multiplier: 3.75
       multiplierOnExisting: 0.75
     - !type:Ignite
   - type: Transform
@@ -69,18 +50,6 @@
           - ItemMask
         density: 1000
         hard: false
-    # Goobstation - fishing
-      fishing:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.4
-        layer:
-        - ItemMask
-        mask:
-        - HighImpassable
-        density: 1000
-        hard: false
-    # Goobstation - fishing
   - type: Tag
     tags:
       - HideContextMenu

@@ -5,12 +5,6 @@
   name: firelock
   description: Apply crowbar.
   components:
-  # <Trauma>
-  - type: DoorBolt # for fire door remote
-  - type: Penetratable
-    penetrateDamage: 75
-    damagePenalty: 0.2
-  # </Trauma>
   - type: Anchorable
     flags:
     - Anchorable
@@ -27,7 +21,7 @@
   - type: DeviceNetworkRequiresPower
   - type: InteractionOutline
   - type: Damageable
-    damageModifierSet: Metallic # Trauma - was StructuralMetallicStrong, dont need invincible firelocks
+    damageModifierSet: StructuralMetallicStrong
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: RCDDeconstructable
@@ -41,7 +35,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100 # Trauma - was 500, this was like 800 EHP for most weapons because of StrongMetallic
+        damage: 500
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

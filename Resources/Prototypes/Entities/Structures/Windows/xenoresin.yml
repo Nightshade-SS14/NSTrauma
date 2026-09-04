@@ -1,5 +1,4 @@
 - type: entity
-  abstract: true # Trauma - xeno station wasn't cherry picked
   parent: ReinforcedWindow
   id: XenoResinWindow
   name: resin window

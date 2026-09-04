@@ -68,11 +68,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 10
-  - type: Tag # Goobstation - Prevent RCD from making lights in one tile
-    tags:
-    - WallLight
   - type: PlacementReplacement
     key: lights
 
@@ -134,7 +129,6 @@
     range: 200
   - type: DeviceLinkSink
     ports:
-      - Control # Trauma
       - On
       - Off
       - Toggle
@@ -342,7 +336,6 @@
       burned: burned
   - type: DeviceLinkSink
     ports:
-      - Control # Trauma
       - On
       - Off
       - Toggle

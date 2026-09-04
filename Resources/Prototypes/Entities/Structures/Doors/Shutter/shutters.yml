@@ -7,16 +7,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  # <Trauma>
-  - type: ApcPowerReceiver
-    load: 20
-  - type: ExtensionCableReceiver
-  - type: PoweredDoor # no Airlock so copy this 1 thing
-  - type: PryUnpowered
-    pryModifier: 0.6 # it's not hard to raise shutters
-  - type: SoundBlocker
-    soundBlockPercent: 0.5
-  # </Trauma>
   - type: Anchorable
     flags:
     - Anchorable
@@ -78,6 +68,8 @@
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Airtight
+  - type: RadiationBlocker
+    resistance: 2
   - type: Damageable
     damageModifierSet: StructuralMetallic
   - type: Injurable
@@ -90,23 +82,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    # <Trauma>
-    - trigger: !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          CableApcStack1:
-            min: 1
-            max: 2
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:ChangeConstructionNodeBehavior
-        node: frame1
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    # </Trauma>
   - type: DoorSignalControl
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -263,22 +238,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    # <Trauma>
-    - trigger: !type:DamageTrigger
-        damage: 50
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          # decent recovery from smashing since it's basically just a bunch of small sheets
-          SheetSteel1:
-            min: 2
-            max: 3
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    # </Trauma>
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures

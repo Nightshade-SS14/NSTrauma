@@ -13,7 +13,7 @@
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: RadiationBlocker
-    resistance: 10 # Goobstation - Radiation Overhaul
+    resistance: 4
   - type: Destructible
     thresholds:
     - trigger:
@@ -74,7 +74,7 @@
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: RadiationBlocker
-    resistance: 5 # Goobstation - Radiation Overhaul
+    resistance: 2
   - type: Destructible
     thresholds:
     - trigger:
@@ -96,8 +96,6 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 66
-  - type: CosmicCorruptible # DeltaV - Cosmic Cult
-    convertTo: WindowCosmicCult
 
 - type: entity
   parent: ReinforcedPlasmaWindow

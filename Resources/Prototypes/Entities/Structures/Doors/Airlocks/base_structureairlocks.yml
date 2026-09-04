@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: Airlock
   parent: BaseStructure
   name: airlock
@@ -158,7 +158,7 @@
     - "0.5, -0.5"
     - "-0.5, -0.5"
   - type: Damageable
-    damageModifierSet: Metallic # Trauma - Was StrongMetallic, too tanky
+    damageModifierSet: StrongMetallic
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: RCDDeconstructable
@@ -177,23 +177,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-    # <Trauma>
-    - trigger: !type:DamageTrigger
-        damage: 450
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 1
-            max: 2
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalSlam
-      - !type:ChangeConstructionNodeBehavior
-        node: assembly
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    # </Trauma>
   - type: Construction
     graph: Airlock
     node: airlock
@@ -220,10 +203,6 @@
     - Airlocks
     - WirePanels
     - Networking
-  - type: Penetratable # Goobstation - Better snipers
-    penetrateDamage: 75
-    damagePenalty: 0.2
-  - type: SoundBlocker # Trauma
   placement:
     mode: SnapgridCenter
 
@@ -240,9 +219,6 @@
   parent: Airlock
   name: glass airlock
   components:
-  # <Trauma>
-  - type: ReflectiveSurface
-  # </Trauma>
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -273,8 +249,8 @@
     node: glassAirlock
   - type: Paintable
     group: AirlockGlass
-  #- type: RadiationBlocker
-  #  resistance: 2
+  - type: RadiationBlocker
+    resistance: 2
   - type: Tag
     tags:
       - GlassAirlock
