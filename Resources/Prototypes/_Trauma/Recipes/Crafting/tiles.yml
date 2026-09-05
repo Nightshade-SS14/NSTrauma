@@ -6,12 +6,30 @@
   graph: TilePlastic
   targetNode: plastic tile
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false # annoying for construction, masterwork tiles as weapons is sad but not worth the hassle
+  # </Trauma>
+
 - type: construction
   parent: TilePlastic
   id: TilePlasticDark
   targetNode: dark plastic tile
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false # annoying for construction, masterwork tiles as weapons is sad but not worth the hassle
+  # </Trauma>
+
 - type: construction
   parent: TilePlastic
   id: TilePlasticWhite
   targetNode: white plastic tile
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false # annoying for construction, masterwork tiles as weapons is sad but not worth the hassle
+  # </Trauma>

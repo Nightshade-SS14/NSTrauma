@@ -175,6 +175,13 @@
   - BorgModuleAdvancedTopical
   - AdvancedJetInjector
 
+  # Goobstation R&D Console rework start
+  position: -1,4
+  technologyPrerequisites:
+  - AdvancedEntertainment
+  - BasicRobotics
+  # Goobstation R&D Console rework end
+
 - type: technology
   id: AdvancedCleaning
   name: research-technology-advanced-cleaning
@@ -294,6 +301,12 @@
   recipeUnlocks:
   - ClothingShoesBootsSpeed
 
+  # Goobstation R&D Console rework start
+  position: 2,6
+  technologyPrerequisites:
+  - BluespaceCargoTransport
+  # Goobstation R&D Console rework end
+
 - type: technology
   id: BluespaceChemistry
   name: research-technology-bluespace-chemistry
@@ -325,3 +338,9 @@
   recipeUnlocks:
   - LauncherSyringe
   - MiniSyringe
+
+  # Goobstation R&D Console rework start
+  position: 5,5
+  technologyPrerequisites:
+  - BluespaceChemistry
+  # Goobstation R&D Console rework end

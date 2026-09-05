@@ -15,11 +15,23 @@
   graph: TileSteel
   targetNode: steeltile
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false # annoying for construction, masterwork tiles as weapons is sad but not worth the hassle
+  # </Trauma>
+
 - type: construction
   parent: BaseTile
   id: TileWood
   graph: TileWood
   targetNode: woodtile
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false # annoying for construction, masterwork tiles as weapons is sad but not worth the hassle
+  # </Trauma>
 
 - type: construction
   parent: BaseTile
@@ -27,11 +39,23 @@
   graph: TileWhite
   targetNode: whitetile
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false # annoying for construction, masterwork tiles as weapons is sad but not worth the hassle
+  # </Trauma>
+
 - type: construction
   parent: BaseTile
   id: TileDark
   graph: TileDark
   targetNode: darktile
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false # annoying for construction, masterwork tiles as weapons is sad but not worth the hassle
+  # </Trauma>
 
 - type: construction
   parent: BaseTile
@@ -39,9 +63,21 @@
   graph: TileFlesh
   targetNode: fleshTile
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false # annoying for construction, masterwork tiles as weapons is sad but not worth the hassle
+  # </Trauma>
+
 - type: construction
   parent: BaseTile
   id: TileWoodLarge
   graph: TileWoodLarge
   targetNode: woodtilelarge
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false # annoying for construction, masterwork tiles as weapons is sad but not worth the hassle
+  # </Trauma>
 # endregion Tiles

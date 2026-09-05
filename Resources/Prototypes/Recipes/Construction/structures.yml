@@ -167,16 +167,31 @@
   id: Window
   targetNode: window
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseWindowDiagonal
   id: WindowDiagonal
   name: construction-window-diagonal
   targetNode: windowDiagonal
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseWindow
   id: ReinforcedWindow
   targetNode: reinforcedWindow
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
 
 - type: construction
   parent: BaseWindowDiagonal
@@ -184,25 +199,50 @@
   name: construction-recipe-reinforced-window-diagonal
   targetNode: reinforcedWindowDiagonal
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseWindow
   id: TintedWindow
   targetNode: tintedWindow
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
 
 - type: construction
   parent: BaseWindow
   id: PlasmaWindow
   targetNode: plasmaWindow
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseWindow
   id: ReinforcedPlasmaWindow
   targetNode: reinforcedPlasmaWindow
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseWindow
   id: ShuttleWindow
   targetNode: shuttleWindow
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
 
 - type: construction
   parent: BaseWindowDiagonal
@@ -210,21 +250,41 @@
   name: construction-recipe-plasma-window-diagonal
   targetNode: plasmaWindowDiagonal
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseWindowDiagonal
   id: ReinforcedPlasmaWindowDiagonal
   name: construction-recipe-reinforced-plasma-window-diagonal
   targetNode: reinforcedPlasmaWindowDiagonal
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseWindow
   id: UraniumWindow
   targetNode: uraniumWindow
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseWindow
   id: ReinforcedUraniumWindow
   targetNode: reinforcedUraniumWindow
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
 
 - type: construction
   parent: BaseWindowDiagonal
@@ -232,11 +292,21 @@
   name: construction-recipe-uranium-window-diagonal
   targetNode: uraniumWindowDiagonal
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: BaseWindowDiagonal
   id: ReinforcedUraniumWindowDiagonal
   name: construction-recipe-reinforced-uranium-window-diagonal
   targetNode: reinforcedUraniumWindowDiagonal
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
 
 - type: construction
   parent: BaseWindow
@@ -245,20 +315,40 @@
   targetNode: windowDirectional
   canRotate: true
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: WindowDirectional
   id: WindowReinforcedDirectional
   targetNode: windowReinforcedDirectional
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
 
 - type: construction
   parent: WindowDirectional
   id: PlasmaWindowDirectional
   targetNode: plasmaWindowDirectional
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: WindowDirectional
   id: PlasmaReinforcedWindowDirectional
   targetNode: plasmaReinforcedWindowDirectional
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
 # endregion Windows
 
 # region Firelocks
@@ -294,21 +384,49 @@
   id: Shutters
   targetNode: Shutters
 
+  # <Trauma>
+  theory:
+    AirlocksKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 2
+  # </Trauma>
+
 - type: construction
   parent: BaseShutters
   id: ShuttersWindow
   targetNode: ShuttersWindow
+
+  # <Trauma>
+  theory:
+    AirlocksKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 2
+  # </Trauma>
 
 - type: construction
   parent: BaseShutters
   id: ShuttersRadiation
   targetNode: ShuttersRadiation
 
+  # <Trauma>
+  theory:
+    AirlocksKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 2
+  # </Trauma>
+
 - type: construction
   parent: BaseShutters
   id: BlastDoor
   graph: BlastDoor
   targetNode: blastdoor
+
+  # <Trauma>
+  theory:
+    AirlocksKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 3
+  # </Trauma>
 # endregion Shutters
 
 # region Floors
@@ -599,6 +717,11 @@
   id: LightGroundFixture
   graph: LightFixture
   targetNode: groundLight
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
 # endregion Lighting
 
 # region Material Doors
@@ -607,6 +730,13 @@
   id: SilverDoor
   graph: DoorGraph
   targetNode: silverDoor
+
+  # <Trauma>
+  theory:
+    DoorsKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 2
+  # </Trauma>
 
 - type: construction
   parent: SilverDoor
@@ -625,10 +755,24 @@
   id: PlasmaDoor
   targetNode: plasmaDoor
 
+  # <Trauma>
+  theory:
+    DoorsKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 2
+  # </Trauma>
+
 - type: construction
   parent: SilverDoor
   id: GoldDoor
   targetNode: goldDoor
+
+  # <Trauma>
+  theory:
+    DoorsKnowledge: 0
+  practical:
+    MetalworkingKnowledge: 2
+  # </Trauma>
 
 - type: construction
   parent: SilverDoor
@@ -645,6 +789,12 @@
   parent: SilverDoor
   id: CardDoor
   targetNode: cardDoor
+
+  # <Trauma>
+  theory:
+    DoorsKnowledge: 0
+  practical: {}
+  # </Trauma>
 # endregion Material Doors
 
 # region Plastic Flaps
@@ -655,11 +805,21 @@
   graph: PlasticFlapsGraph
   targetNode: plasticFlaps
 
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
+
 - type: construction
   parent: PlasticFlapsClear
   id: PlasticFlapsOpaque
   name: construction-recipe-plastic-flaps-opaque
   targetNode: opaqueFlaps
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  # </Trauma>
 # endregion Plastic Flaps
 
 # region Decoration
@@ -668,6 +828,13 @@
   id: CarpStatue
   graph: CarpStatue
   targetNode: statue
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  practical:
+    CarvingKnowledge: 4
+  # </Trauma>
 
 - type: construction
   parent: BaseStructureFullTile
@@ -687,6 +854,14 @@
   id: BananiumAltar
   graph: BananiumAltarGraph
   targetNode: bananiumAltar
+
+  # <Trauma>
+  theory:
+    BananiumKnowledge: 0
+  practical:
+    CarvingKnowledge: 4
+  # </Trauma>
+
 # endregion Decoration
 
 # region Miscallaneous
@@ -713,6 +888,14 @@
   graph: EnergyGate
   targetNode: energyGate
 
+  # <Trauma>
+  theory:
+    DoorsKnowledge: 0
+  practical:
+    DoorsKnowledge: 1
+    MetalworkingKnowledge: 3
+  # </Trauma>
+
 - type: construction
   parent: BaseStructureFullTileDirectional
   id: ConveyorBelt
@@ -730,6 +913,12 @@
   id: FungalSoil
   graph: Soil
   targetNode: fungalSoil
+
+  # <Trauma>
+  theory:
+    FabricationKnowledge: 0
+  useQuality: false
+  # </Trauma>
 
 - type: construction
   parent: BaseStructureFullTile
