@@ -3,6 +3,6 @@
 - type: tile
   parent: FloorAstroGrass
   id: FloorAstroGrassJungle
-  sprite: /Textures/Tiles/grassjungle.png
+  sprite: /Textures/Tiles/GrassJungle/grass.png
   itemDrop: FloorTileItemJungleAstroGrass
   variants: 1
